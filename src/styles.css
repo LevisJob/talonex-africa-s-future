@@ -88,6 +88,7 @@
   .hero-enter-3 { animation-delay: .4s; }
   .hero-enter-4 { animation-delay: .55s; }
   .map-draw { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: map-draw 2.8s ease-out forwards; }
+  .map-country { stroke-dasharray: 1; stroke-dashoffset: 1; animation: map-country-draw 2.5s ease-out forwards; }
   .kenya-ring { transform-box: fill-box; transform-origin: center; animation: kenya-pulse 3s ease-out infinite; }
   .kenya-ring-2 { animation-delay: 1.5s; }
   .status-dot { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--data); box-shadow: 0 0 13px var(--data); animation: dot-pulse 2s ease-in-out infinite; }
@@ -111,6 +112,7 @@
 
 @keyframes hero-rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes map-draw { to { stroke-dashoffset: 0; } }
+@keyframes map-country-draw { to { stroke-dashoffset: 0; } }
 @keyframes kenya-pulse { 0% { opacity: .5; transform: scale(.7); } 70%, 100% { opacity: 0; transform: scale(2.5); } }
 @keyframes dot-pulse { 50% { opacity: .45; box-shadow: 0 0 3px var(--data); } }
 @keyframes ticker-scroll { to { transform: translateX(-50%); } }
@@ -133,5 +135,6 @@
   html { scroll-behavior: auto; }
   .hero-enter { opacity: 1; animation: none; }
   .map-draw { stroke-dashoffset: 0; animation: none; }
+  .map-country { stroke-dashoffset: 0; animation: none; }
   .kenya-ring, .status-dot, .ticker-track, .closing-glow { animation: none; }
 }
