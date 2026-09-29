@@ -34,19 +34,19 @@
   --font-heading: "Manrope", sans-serif;
   --font-body: "IBM Plex Sans", sans-serif;
   --font-data: "IBM Plex Mono", monospace;
-  --background: oklch(0.16 0.007 70);
+  --background: #0c0b09;
   --foreground: oklch(0.96 0.004 75);
   --card: oklch(0.20 0.008 70);
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary: oklch(0.75 0.16 53);
-  --primary-foreground: oklch(0.16 0.007 70);
+  --primary: #ff8a3d;
+  --primary-foreground: #0c0b09;
   --secondary: oklch(0.24 0.011 68);
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.27 0.009 70);
   --muted-foreground: oklch(0.65 0.012 70);
-  --accent: oklch(0.78 0.12 177);
+  --accent: #4fd8c4;
   --accent-foreground: var(--background);
   --border: oklch(0.37 0.009 70 / 65%);
   --input: var(--border);
@@ -56,8 +56,8 @@
   --inverse: var(--background);
   --surface: oklch(0.19 0.008 70);
   --surface-deep: oklch(0.13 0.007 70);
-  --hero-scrim: linear-gradient(90deg, var(--background) 2%, oklch(0.16 0.007 70 / 97%) 24%, oklch(0.16 0.007 70 / 70%) 48%, oklch(0.16 0.007 70 / 10%) 75%);
-  --amber-glow: radial-gradient(ellipse at center, oklch(0.75 0.16 53 / 15%), transparent 65%);
+  --hero-scrim: linear-gradient(90deg, var(--background) 2%, color-mix(in srgb, var(--background) 97%, transparent) 24%, color-mix(in srgb, var(--background) 70%, transparent) 48%, color-mix(in srgb, var(--background) 10%, transparent) 75%);
+  --amber-glow: radial-gradient(ellipse at center, color-mix(in srgb, var(--primary) 15%, transparent), transparent 65%);
 }
 
 @layer base {
@@ -121,13 +121,13 @@
   .page-shell { width: min(100% - 48px, 1392px); }
   .hero { min-height: min(690px, calc(100svh - 105px)); }
   .hero-map { width: 112%; right: -38%; opacity: .65; }
-  .hero-scrim { background: linear-gradient(90deg, var(--background) 0%, oklch(0.16 0.007 70 / 82%) 65%, oklch(0.16 0.007 70 / 30%) 100%); }
+  .hero-scrim { background: linear-gradient(90deg, var(--background) 0%, color-mix(in srgb, var(--background) 82%, transparent) 65%, color-mix(in srgb, var(--background) 30%, transparent) 100%); }
 }
 @media (max-width: 640px) {
   .page-shell { width: calc(100% - 36px); }
   .hero { min-height: min(650px, calc(100svh - 104px)); align-items: flex-end; padding-bottom: 68px; }
   .hero-map { width: 160%; height: 90%; top: -8%; right: -75%; opacity: .55; }
-  .hero-scrim { background: linear-gradient(0deg, var(--background) 6%, oklch(0.16 0.007 70 / 90%) 26%, oklch(0.16 0.007 70 / 40%) 85%); }
+  .hero-scrim { background: linear-gradient(0deg, var(--background) 6%, color-mix(in srgb, var(--background) 90%, transparent) 26%, color-mix(in srgb, var(--background) 40%, transparent) 85%); }
   .hero-title { font-size: clamp(42px, 10vw, 61px); }
   .ticker-item { padding: 16px 26px; }
 }
