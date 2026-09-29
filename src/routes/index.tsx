@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, Building2, CircleDot, Copy, Globe2, Leaf, Menu, Server, X } from "lucide-react";
+import { CircleDot, Globe2, Leaf, Menu, Server, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { africaPaths } from "@/lib/africa-paths";
 
@@ -42,16 +42,16 @@ function AfricaMap() {
       <g transform="translate(94 90) scale(1.08)">
         {africaPaths.map((path, index) => <path key={index} d={path} fill="var(--surface)" fillOpacity=".8" stroke="var(--muted-foreground)" strokeOpacity=".42" strokeWidth=".8" />)}
         <g className="map-draw" stroke="var(--primary)" strokeOpacity=".24" strokeWidth="1.2" fill="none">
-          <path d="M 627 423 Q 545 324 401 229" />
-          <path d="M 627 423 Q 699 342 832 281" />
+          <path d="M 570 380 Q 488 281 344 186" />
+          <path d="M 570 380 Q 642 299 775 238" />
         </g>
-        <circle cx="627" cy="423" r="27" fill="var(--primary)" fillOpacity=".09" />
-        <circle cx="627" cy="423" r="11" fill="var(--primary)" fillOpacity=".13" />
-        <circle cx="627" cy="423" r="5" fill="var(--primary)" />
-        <circle className="kenya-ring" cx="627" cy="423" r="13" stroke="var(--primary)" strokeWidth="1.5" />
-        <circle className="kenya-ring kenya-ring-2" cx="627" cy="423" r="13" stroke="var(--primary)" strokeWidth="1.5" />
-        <text x="646" y="417" fill="var(--foreground)" fontFamily="var(--font-data)" fontSize="12">KENYA</text>
-        <text x="646" y="433" fill="var(--muted-foreground)" fontFamily="var(--font-data)" fontSize="9">01°17′S 36°49′E</text>
+        <circle cx="570" cy="380" r="27" fill="var(--primary)" fillOpacity=".09" />
+        <circle cx="570" cy="380" r="11" fill="var(--primary)" fillOpacity=".13" />
+        <circle cx="570" cy="380" r="5" fill="var(--primary)" />
+        <circle className="kenya-ring" cx="570" cy="380" r="13" stroke="var(--primary)" strokeWidth="1.5" />
+        <circle className="kenya-ring kenya-ring-2" cx="570" cy="380" r="13" stroke="var(--primary)" strokeWidth="1.5" />
+        <text x="589" y="374" fill="var(--foreground)" fontFamily="var(--font-data)" fontSize="12">KENYA</text>
+        <text x="589" y="390" fill="var(--muted-foreground)" fontFamily="var(--font-data)" fontSize="9">01°17′S 36°49′E</text>
       </g>
     </svg>
   );
@@ -60,12 +60,8 @@ function AfricaMap() {
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
   const navLinks = [{ label: "The Facility", href: "#facility" }, { label: "Our Story", href: "#about" }, { label: "Partners", href: "#partners" }, { label: "News", href: "#news" }];
   const openEnquiry = () => { setMenuOpen(false); setEnquiryOpen(true); };
-  const copyEnquiry = async () => {
-    try { await navigator.clipboard.writeText("Investment enquiry — Talonex"); setCopied(true); window.setTimeout(() => setCopied(false), 2000); } catch { setCopied(false); }
-  };
 
   return (
     <main className="overflow-hidden">
@@ -113,7 +109,7 @@ function Index() {
       <footer className="page-shell flex flex-col justify-between gap-8 py-12 sm:flex-row sm:items-end"><div><a href="#top" className="wordmark inline-flex items-center text-foreground">TALONEX<span className="wordmark-mark" /></a><p className="mt-5 max-w-[530px] text-xs leading-6 text-muted-foreground">Design prototype only. Facility figures, partner placeholders, news content, and investment information are illustrative and subject to verification.</p></div><div className="flex flex-col gap-3 text-xs text-muted-foreground sm:items-end"><span>Kenya · East Africa</span><span>© 2026 Talonex. Concept presentation.</span></div></footer>
       <div className="prototype-badge fixed bottom-4 right-4 z-40 px-3 py-2 font-mono text-[10px] text-muted-foreground">Design prototype</div>
 
-      {enquiryOpen && <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/85 p-5 backdrop-blur-sm" role="presentation" onMouseDown={e => { if (e.target === e.currentTarget) setEnquiryOpen(false); }}><div className="w-full max-w-[480px] border border-border bg-card p-7 shadow-2xl sm:p-9" role="dialog" aria-modal="true" aria-labelledby="enquiry-title"><div className="flex items-start justify-between gap-5"><div><p className="text-label">TALONEX / INVESTMENT</p><h2 id="enquiry-title" className="mt-4 font-display text-3xl font-bold">Investment Enquiry</h2></div><Button variant="talonIcon" size="icon" aria-label="Close enquiry" onClick={() => setEnquiryOpen(false)}><X /></Button></div><p className="mt-6 leading-7 text-soft">This is a design prototype. Investment contact details and an enquiry channel will be available when the live site launches.</p><div className="mt-8 flex flex-wrap gap-3"><Button variant="talon" onClick={copyEnquiry}><Copy size={15} />{copied ? "Copied" : "Copy enquiry subject"}</Button><Button variant="talonOutline" onClick={() => setEnquiryOpen(false)}>Close</Button></div></div></div>}
+      {enquiryOpen && <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/85 p-5 backdrop-blur-sm" role="presentation" onMouseDown={e => { if (e.target === e.currentTarget) setEnquiryOpen(false); }}><div className="w-full max-w-[480px] border border-border bg-card p-7 shadow-2xl sm:p-9" role="dialog" aria-modal="true" aria-labelledby="enquiry-title"><div className="flex items-start justify-between gap-5"><div><p className="text-label">TALONEX / INVESTMENT</p><h2 id="enquiry-title" className="mt-4 font-display text-3xl font-bold">Investment Enquiry</h2></div><Button variant="talonIcon" size="icon" aria-label="Close enquiry" onClick={() => setEnquiryOpen(false)}><X /></Button></div><p className="mt-6 leading-7 text-soft">This is a design prototype. Investment contact details and an enquiry channel will be available when the live site launches.</p><Button variant="talonOutline" className="mt-8" onClick={() => setEnquiryOpen(false)}>Close</Button></div></div>}
     </main>
   );
 }

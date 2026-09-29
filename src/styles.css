@@ -88,7 +88,7 @@
   .hero-enter-3 { animation-delay: .4s; }
   .hero-enter-4 { animation-delay: .55s; }
   .map-draw { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: map-draw 2.8s ease-out forwards; }
-  .kenya-ring { transform-origin: 657px 423px; animation: kenya-pulse 3s ease-out infinite; }
+  .kenya-ring { transform-box: fill-box; transform-origin: center; animation: kenya-pulse 3s ease-out infinite; }
   .kenya-ring-2 { animation-delay: 1.5s; }
   .status-dot { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--data); box-shadow: 0 0 13px var(--data); animation: dot-pulse 2s ease-in-out infinite; }
   .ticker { overflow: hidden; border-block: 1px solid var(--border); background: var(--surface); }
